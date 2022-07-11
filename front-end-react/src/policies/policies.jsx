@@ -18,7 +18,6 @@ const Policies = ({ items }) => {
     policies.find((policy, i) => {
       if (policy.policy_id === updatedResult.policy_id) {
         copyPolicies[i] = updatedResult;
-        console.log(copyPolicies[i]);
         return true;
       }
       return false;
