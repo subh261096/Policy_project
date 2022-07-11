@@ -48,12 +48,13 @@ def get_policy_by_id(policy_id):
       return jsonify([])
 
 ## Api Route to Get Policies Count Per Month
-@app.route('/policies_per_month', methods=['GET'])
-def get_policies_per_month():
+@app.route('/policies_per_month/<customer_region>', methods=['GET'])
+def get_policies_per_month(customer_region):
   policies_per_month = []
   session = db.session.query( \
     extract('month', Policy.date_of_purchase).label("Month"), \
     func.count(Policy.policy_id)) \
+    .filter_by(customer_region=customer_region) \
     .group_by(extract('month', Policy.date_of_purchase).label("Month")) \
     .order_by("Month").all()
   for policy in session:
