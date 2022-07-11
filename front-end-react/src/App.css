@@ -1,0 +1,14 @@
+body {
+  background-color: #e2dfe3;
+}
+
+.error-message {
+  color: red;
+}
+
+.home-text {
+  width: 80%;
+  font-size: 70px;
+  color: #1565c0;
+  text-align: center;
+}
