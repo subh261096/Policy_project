@@ -12,12 +12,12 @@ import {
 import { CircularProgress, Stack } from "@mui/material";
 
 // DisplayChart Component to Display the Bar Graph
-const DisplayChart = () => {
+const DisplayChart = ({region}) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setIsLoading(true);
-    fetch(`/policies_per_month`)
+    fetch(`https://policy-updater.herokuapp.com/policies_per_month/${region}`)
       .then((response) => (response.ok && response.json()))
       .then((parsedResponse) => {
         if (parsedResponse.length) {
@@ -26,7 +26,7 @@ const DisplayChart = () => {
         }
       })
       .catch(console.error);
-  }, []);
+  }, [region]);
   return (
     <div>
       {isLoading && (

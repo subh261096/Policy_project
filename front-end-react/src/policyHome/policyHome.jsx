@@ -30,7 +30,7 @@ const SearchPolicy = () => {
     }else{
       setError(false);
       setIsLoading(true);
-      fetch(`/${searchType}/${searchId}`)
+      fetch(`https://policy-updater.herokuapp.com/${searchType}/${searchId}`)
       .then((response) => response.json())
       .then((parsedResponse) => {
         if (parsedResponse.length) {
@@ -59,7 +59,13 @@ const SearchPolicy = () => {
     <div className="Search-Policy">
       <div className="customer-container">
         <Stack direction="row" spacing={2}>
-          <ChartModal />
+          <ChartModal regions={{
+                    East: "East",
+                    West: "West",
+                    North: "North",
+                    South: "South",
+                  }}
+          />
           <TextField
             label="Search"
             aria-label="policy_id, customer_id"
