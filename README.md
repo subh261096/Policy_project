@@ -1,4 +1,4 @@
-# Healthe Intent HealtheRecord Application
+# Policy Project
 
 ## Getting Started
 
