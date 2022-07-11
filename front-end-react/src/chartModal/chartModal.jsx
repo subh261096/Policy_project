@@ -42,6 +42,18 @@ const ChartModal = ({ regions }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+        <InputLabel id="demo-simple-select-label">Region</InputLabel>
+        <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={currentRegion}
+              label="Age"
+              onChange={(e)=>setCurrentRegion(e.target.value)}
+            >
+              {Object.entries(regions).map(([key,value])=>
+                <MenuItem value={key}>{value}</MenuItem>
+              )}
+            </Select>
           <Stack spacing={2}>
             <Typography
                   id="modal-modal-title"
@@ -51,18 +63,8 @@ const ChartModal = ({ regions }) => {
                 >
                   Policy Count / Month
             </Typography>
-            <InputLabel id="idRegion">Region</InputLabel>
-            <Select
-              labelId="idRegion"
-              id="idRegion"
-              value={currentRegion}
-              label="Region"
-              onChange={(e)=>setCurrentRegion(e.target.value)}
-            >
-              {Object.entries(regions).map(([key,value])=>
-                <MenuItem value={key}>{value}</MenuItem>
-              )}
-            </Select>
+            
+            
             <DisplayChart region={currentRegion}/>
           </Stack>
         </Box>
