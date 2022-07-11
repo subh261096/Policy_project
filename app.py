@@ -1,4 +1,4 @@
-# from flask_cors import CORS
+from flask_cors import CORS
 from sqlalchemy import DateTime, func, extract
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, request, jsonify, send_from_directory
@@ -6,8 +6,8 @@ from sqlalchemy.orm.exc import NoResultFound
 import datetime
 
 app = Flask(__name__, static_url_path='', static_folder='front-end-react/build')
-# app.config['CORS_HEADERS'] = 'Content-Type'
-# CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+CORS(app)
 
 # Database Configurations
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qqdxobfltvjitz:ea6348434e3d40c1a6a390a685c13189fad40eaf4be582b99bc515947c14b0a8@ec2-54-242-152-123.compute-1.amazonaws.com:5432/d6fq43a645cefa'
