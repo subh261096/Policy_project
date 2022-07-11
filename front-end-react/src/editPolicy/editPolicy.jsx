@@ -75,7 +75,7 @@ const EditPolicy = ({ results, callbackUpdate }) => {
       setError("Premium amount should be less than $1000000");
     } else{
       fetch(
-        `https://policy-updater.herokuapp.com/policy_id/${results.policy_id}`,
+        `/policy_id/${results.policy_id}`,
         {
           method: "PUT",
           headers: {

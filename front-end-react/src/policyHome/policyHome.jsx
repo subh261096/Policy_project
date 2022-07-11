@@ -30,7 +30,7 @@ const SearchPolicy = () => {
     }else{
       setError(false);
       setIsLoading(true);
-      fetch(`https://policy-updater.herokuapp.com/${searchType}/${searchId}`)
+      fetch(`/${searchType}/${searchId}`)
       .then((response) => response.json())
       .then((parsedResponse) => {
         if (parsedResponse.length) {

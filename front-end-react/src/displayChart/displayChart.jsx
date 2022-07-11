@@ -17,7 +17,7 @@ const DisplayChart = () => {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://policy-updater.herokuapp.com/policies_per_month`)
+    fetch(`/policies_per_month`)
       .then((response) => (response.ok && response.json()))
       .then((parsedResponse) => {
         if (parsedResponse.length) {
