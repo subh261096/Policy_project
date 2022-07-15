@@ -100,7 +100,7 @@ const SearchPolicy = () => {
       </div>
 
       <p className="error-message">{ error && errorMessage}</p>
-      {((noResults && !isLoading) || error) && (
+      {((noResults && !isLoading) && error) && (
         <>
           <p className="home-text">
             Search for your favourite policies and easily update according to
